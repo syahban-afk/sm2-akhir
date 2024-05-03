@@ -57,28 +57,11 @@ const Customer5 = {
 
 const arrCustomer = [Customer1, Customer2, Customer3, Customer4, Customer5];
 
-
-// Buat array untuk menyimpan token Customer
-const arrToken = [];
-
-// Loop melalui setiap objek Customer dalam array arrCustomer
 arrCustomer.forEach((Customer, index) => {
-    // Buat token untuk setiap Customer dan simpan ke dalam array arrToken
-    const token = createRegistrationToken(Customer.name, Customer.address, Customer.contact_number);
-    arrToken.push(token);
-
-    // Tampilkan detail Customer dan token
+    const token = createRegistrationToken(Customer.name, Customer.address, Customer.contact_number)
     console.log(`Customer dengan ID ${index + 1}:`);
-    console.log("Nama:", Customer.name);
-    console.log("Alamat:", Customer.address);
-    console.log("Nomor Kontak:", Customer.contact_number);
-    console.log("Token:", token);
+    console.log("Customer Token:", token);
+    const verifiedCustomer = verifyRegistrationToken(token);
+    console.log("Verified Customer:", verifiedCustomer);
     console.log("----------------------------------");
-});
-
-// Tampilkan hasil verifikasi token untuk setiap token Customer
-arrToken.forEach((token, index) => {
-    const verifiedToken = verifyRegistrationToken(token);
-    console.log(`Verifikasi token Customer dengan ID ${index + 1}:`, verifiedToken);
-    console.log("----------------------------------");
-});
+})
