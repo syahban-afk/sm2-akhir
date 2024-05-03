@@ -5,8 +5,7 @@ function createScheduleToken(prayer_time, meal_time, family_time) {
     const payload = {
         prayer_time: prayer_time,
         meal_time: meal_time,
-        family_time: family_time,
-        exp: Math.floor(Date.now() / 1000) + (60 * 60 * 24)
+        family_time: family_time
     };
     const token = jwt.sign(payload, secretKey);
     return token;
@@ -14,7 +13,7 @@ function createScheduleToken(prayer_time, meal_time, family_time) {
 
 function verifyScheduleToken(token) {
     try {
-        const payload = jwt.verify(token, secretKey, { expiresIn: '1d' });
+        const payload = jwt.verify(token, secretKey);
         return payload;
     } catch (err) {
         if (err.name === 'TokenExpiredError') {

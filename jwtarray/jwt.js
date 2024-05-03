@@ -5,8 +5,7 @@ function createRegistrationToken(name, address, contact_number) {
     const payload = {
         name: name,
         address: address,
-        contact_number: contact_number,
-        exp: Math.floor(Date.now() / 1000) + (60 * 60 * 24)
+        contact_number: contact_number
     };
     const token = jwt.sign(payload, secretKey);
     return token;
