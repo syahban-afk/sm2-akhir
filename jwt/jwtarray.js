@@ -25,50 +25,47 @@ function verifyRegistrationToken(token) {
     }
 }
 
-// Buat 5 data Customer
-const Customer1 = {
+// Buat 5 data siswa
+const siswa1 = {
     name: "Budi",
     address: "Lampung",
     contact_number: "081234567890"
 };
 
-const Customer2 = {
+const siswa2 = {
     name: "Rudy",
     address: "Lampung",
     contact_number: "081234567891"
 };
 
-const Customer3 = {
+const siswa3 = {
     name: "Hotman",
     address: "JKT",
     contact_number: "081234567892"
 };
 
-const Customer4 = {
+const siswa4 = {
     name: "Santi",
     address: "Bali",
     contact_number: "081234567893"
 };
 
-const Customer5 = {
+const siswa5 = {
     name: "Dewi",
     address: "Bandung",
     contact_number: "081234567894"
 };
 
-const arrCustomer = [Customer1, Customer2, Customer3, Customer4, Customer5];
+const arrSiswa = [siswa1, siswa2, siswa3, siswa4, siswa5];
 
-// Buat token untuk setiap Customer dan simpan ke dalam array
+// Buat token untuk setiap siswa dan simpan ke dalam array
 const arrToken = [];
-
-
-
-arrCustomer.forEach(Customer => {
-    const token = createRegistrationToken(Customer.name, Customer.address, Customer.contact_number);
+arrSiswa.forEach(siswa => {
+    const token = createRegistrationToken(siswa.name, siswa.address, siswa.contact_number);
     arrToken.push(token);
 });
 
-// Tampilkan token untuk setiap Customer menggunakan forEach
+// Tampilkan token untuk setiap siswa menggunakan forEach
 arrToken.forEach((token, index) => {
-    console.log(`Customer dengan id ${index + 1} menggunakan token ${token}`);
+    console.log(`Siswa dengan id ${index + 1} menggunakan token ${token}`);
 });

@@ -25,50 +25,61 @@ function verifyRegistrationToken(token) {
     }
 }
 
-// Buat 5 data siswa
-const siswa1 = {
+// Buat 5 data Customer
+const Customer1 = {
     name: "Budi",
     address: "Lampung",
     contact_number: "081234567890"
 };
 
-const siswa2 = {
+const Customer2 = {
     name: "Rudy",
     address: "Lampung",
     contact_number: "081234567891"
 };
 
-const siswa3 = {
+const Customer3 = {
     name: "Hotman",
     address: "JKT",
     contact_number: "081234567892"
 };
 
-const siswa4 = {
+const Customer4 = {
     name: "Santi",
     address: "Bali",
     contact_number: "081234567893"
 };
 
-const siswa5 = {
+const Customer5 = {
     name: "Dewi",
     address: "Bandung",
     contact_number: "081234567894"
 };
 
-const arrSiswa = [siswa1, siswa2, siswa3, siswa4, siswa5];
+const arrCustomer = [Customer1, Customer2, Customer3, Customer4, Customer5];
 
-// Buat token untuk setiap siswa dan simpan ke dalam array
+
+// Buat array untuk menyimpan token Customer
 const arrToken = [];
-arrSiswa.forEach(siswa => {
-    const token = createRegistrationToken(siswa.name, siswa.address, siswa.contact_number);
+
+// Loop melalui setiap objek Customer dalam array arrCustomer
+arrCustomer.forEach((Customer, index) => {
+    // Buat token untuk setiap Customer dan simpan ke dalam array arrToken
+    const token = createRegistrationToken(Customer.name, Customer.address, Customer.contact_number);
     arrToken.push(token);
+
+    // Tampilkan detail Customer dan token
+    console.log(`Customer dengan ID ${index + 1}:`);
+    console.log("Nama:", Customer.name);
+    console.log("Alamat:", Customer.address);
+    console.log("Nomor Kontak:", Customer.contact_number);
+    console.log("Token:", token);
+    console.log("----------------------------------");
 });
 
-// Tampilkan token untuk setiap siswa menggunakan forEach
+// Tampilkan hasil verifikasi token untuk setiap token Customer
 arrToken.forEach((token, index) => {
-    console.log(`Siswa dengan id:${index + 1}\nmenggunakan token:${token}`);
-    const verifyRegistrationToken = verifyRegistrationToken(token);
-    console.log("Verified Schedule:", verifyRegistrationToken);
+    const verifiedToken = verifyRegistrationToken(token);
+    console.log(`Verifikasi token Customer dengan ID ${index + 1}:`, verifiedToken);
     console.log("----------------------------------");
 });
