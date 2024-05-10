@@ -1,20 +1,14 @@
-const mysql = require('mysql2');
+const mysql = require('mysql2/promise');
 
-const connection = mysql.createConnection({
+const connection = mysql.createPool({
     host: 'localhost',
     user: 'root',
+    database: 'bazma_jwt_auth',
     password: '',
     port: 3306,
     waitForConnections: false,
     connectionLimit: 10,
     queueLimit: 0,
-    database: 'bazma_jwt_auth'
 });
 
-
-connection.connect((err) => {
-    if (err) throw err;
-    console.log('Terhubung ke database MySQL!');
-});
-
-module.exports= connection;
+module.exports = connection;
