@@ -9,8 +9,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // Routes
-const AuthRoute = require('./routers/authRoute');
-const TodoRoute = require('./routers/todoRoute')
+const AuthRoute = require('./Routes/AuthRoute');
+const TodoRoute = require('./Routes/TodoRoute');
 app.use("/api/auth", AuthRoute);
 app.use("/api", TodoRoute);
 
